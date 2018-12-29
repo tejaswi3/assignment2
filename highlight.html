@@ -1,0 +1,42 @@
+<html>
+  <head>
+	<title>Display content</title>
+	<style>
+		.right{
+			float:right;
+			width:700px;
+			height:700px;
+			}
+
+	</style>
+	<link rel="stylesheet" href="/path/to/styles/highlight.html">
+	<script src="/path/to/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+		
+	</head>
+  <body>
+	<div class="left" >
+		<h1>hai...</h1>
+		Enter your name:<input type="text"/>
+	</div>
+	
+	<div class="right">
+			<pre><code class="html">
+			<script>
+			function showSource(){
+				var source = "<html>";
+			 source += document.getElementsByTagName('html')[0].innerHTML;
+			 source += "</html>";
+			 //now we need to escape the html special chars, javascript has escape
+			 //but this does not do what we want
+			 source = source.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+			 //now we add <pre> tags to preserve whitespace
+			 source = "<pre>"+source+"</pre>";
+			 document.writeln(source);
+			}
+			showSource();
+			</script>
+			</code></pre>
+  </div>
+  </body>
+</html>
